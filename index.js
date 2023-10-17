@@ -70,10 +70,29 @@ minValue(node){
 return minValue
  }
 
-}
 
+
+
+ find(value, tmp = this.root){
+if (tmp.value == null){return false}
+
+if (tmp.value === value){return tmp.value};
+
+if (tmp.value > value) {
+  return this.find(value, tmp.left);
+} else {
+  return this.find(value, tmp.right);
+}
+ }
+
+
+
+
+
+
+
+}
 let tree = new Tree([10, 20, 30, 40, 50, 60, 70, 80, 90]);
 
 console.log(tree);
-console.log(tree.insert(35));
-console.log(tree.delete(50));
+console.log(tree.find(30))
