@@ -147,12 +147,27 @@ preOrder(){
   return result;
 }
 
+postOrder(){
 
+ let result = []
+
+  function traverse(node){
+  if (node !== null){
+    
+    traverse(node.left)
+    traverse(node.right)
+    result.push(node.value)
+  }}
+  traverse(this.root)
+
+return result;
+}
 
 
 }
 
-
+   
+  
 
 
 
@@ -163,3 +178,4 @@ console.log(tree.find(30))
 console.log(tree.levelOrder())
 console.log(tree.inOrder())
 console.log(tree.preOrder())
+console.log(tree.postOrder())
