@@ -107,8 +107,32 @@ if (tmp.value > value) {
     }
     return result
 
- }}
+ }
 
+
+
+
+
+inOrder(){
+
+let result = [];
+
+function traverse(node){
+if(node !== null){
+traverse(node.left)
+result.push(node.value)
+traverse(node.right)
+}
+};
+traverse(this.root)
+return result
+};
+
+
+
+
+
+}
 
 
 
@@ -119,3 +143,4 @@ let tree = new Tree([10, 20, 30, 40, 50, 60, 70, 80, 90]);
 console.log(tree);
 console.log(tree.find(30))
 console.log(tree.levelOrder())
+console.log(tree.inOrder())
