@@ -86,13 +86,36 @@ if (tmp.value > value) {
  }
 
 
+ 
+  levelOrder(tmp = this.root) {
+    if (tmp === null)return [];
+    
+    let queue = [];
+    let result = [];
+    queue.push(tmp)
+
+    while(queue.length > 0){
+      let current = queue.shift();
+      result.push(current.value);
+
+      if (current.left !== null){
+        queue.push(current.left)
+      }
+      if(current.right !== null){
+        queue.push(current.right)
+      }
+    }
+    return result
+
+ }}
 
 
 
 
 
-}
+
 let tree = new Tree([10, 20, 30, 40, 50, 60, 70, 80, 90]);
 
 console.log(tree);
 console.log(tree.find(30))
+console.log(tree.levelOrder())
