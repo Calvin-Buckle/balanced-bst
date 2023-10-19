@@ -129,6 +129,24 @@ return result
 };
 
 
+preOrder(){
+  
+  let result = [];
+
+ 
+  function traverse(node){
+    if (node !== null){
+      result.push(node.value)
+      traverse(node.left)
+      traverse(node.right)
+    }
+  }
+  
+  traverse(this.root)
+  
+  return result;
+}
+
 
 
 
@@ -144,3 +162,4 @@ console.log(tree);
 console.log(tree.find(30))
 console.log(tree.levelOrder())
 console.log(tree.inOrder())
+console.log(tree.preOrder())
