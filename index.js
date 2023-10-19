@@ -175,8 +175,29 @@ return result;
   
   }
 
+
+
+  depth(value, tmp = this.root,counter = 0){
+
    
+
+    if(tmp === null){return "value does not exist"}
+
+   if (tmp.value === value){
+      return counter;
+    }
+    else if(tmp.value < value){
+      return this.depth(value, tmp.right, counter +1);
+    }
+    else if(tmp.value > value){
+      return this.depth(value, tmp.left, counter +1);
+      
+    }
+    
+  }
 }
+   
+
 
 
 
@@ -184,7 +205,7 @@ let tree = new Tree([10, 20, 30, 40, 50, 60, 70, 80, 90]);
 
 
 console.log(tree.height())
-
+console.log(tree.depth(100))
 
 
 
