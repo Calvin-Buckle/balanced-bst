@@ -161,21 +161,30 @@ postOrder(){
   traverse(this.root)
 
 return result;
-}
+};
 
-
-}
+ height(){
+  function calcHeight(node){
+    if(node == null)
+    {return 0}else{
+    const rightHeight = calcHeight(node.right)
+    const leftHeight = calcHeight(node.left)
+    return 1 + Math.max(leftHeight,rightHeight)}
+  }
+  return calcHeight(this.root)
+  
+  }
 
    
-  
+}
 
 
 
 let tree = new Tree([10, 20, 30, 40, 50, 60, 70, 80, 90]);
 
-console.log(tree);
-console.log(tree.find(30))
-console.log(tree.levelOrder())
-console.log(tree.inOrder())
-console.log(tree.preOrder())
-console.log(tree.postOrder())
+
+console.log(tree.height())
+
+
+
+
