@@ -195,7 +195,39 @@ return result;
     }
     
   }
+
+  isBalanced(tmp = this.root) {
+    if (tmp === null) return true;
+
+    let leftHeight = this.calculateHeight(tmp.left);
+    let rightHeight = this.calculateHeight(tmp.right);
+
+    if (Math.abs(leftHeight - rightHeight) <= 1 && this.isBalanced(tmp.left) && this.isBalanced(tmp.right)) {
+        return true;
+    }
+
+    return false;
+    
 }
+
+calculateHeight(node) {
+    if (node === null) {
+        return 0;
+    } else {
+        let leftHeight = this.calculateHeight(node.left);
+        let rightHeight = this.calculateHeight(node.right);
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+}
+   
+    
+
+  }
+  
+
+
+
    
 
 
@@ -206,6 +238,7 @@ let tree = new Tree([10, 20, 30, 40, 50, 60, 70, 80, 90]);
 
 console.log(tree.height())
 console.log(tree.depth(100))
-
+tree.isBalanced()
+console.log(tree.isBalanced())
 
 
