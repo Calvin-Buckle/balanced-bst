@@ -208,9 +208,12 @@ return result;
     );
   }
     
-
-
-
+   reBalance(){
+    if(this.root === null)return;
+    const sorted = [...new Set(this.inorder().sort((a, b) => a - b))];
+    this.root = this.buildTree(sorted);
+   }
+    
 
    }
 
