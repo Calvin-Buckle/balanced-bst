@@ -196,34 +196,26 @@ return result;
     
   }
 
-  isBalanced(tmp = this.root) {
-    if (tmp === null) return true;
-
-    let leftHeight = this.calculateHeight(tmp.left);
-    let rightHeight = this.calculateHeight(tmp.right);
-
-    if (Math.abs(leftHeight - rightHeight) <= 1 && this.isBalanced(tmp.left) && this.isBalanced(tmp.right)) {
-        return true;
-    }
-
-    return false;
-    
-}
-
-calculateHeight(node) {
-    if (node === null) {
-        return 0;
-    } else {
-        let leftHeight = this.calculateHeight(node.left);
-        let rightHeight = this.calculateHeight(node.right);
-
-        return 1 + Math.max(leftHeight, rightHeight);
-    }
-}
-   
-    
-
+  isBalanced(node = this.root) {
+    if (node === null) return true;
+    const heightDiff = Math.abs(
+      this.height(node.left) - this.height(node.right)
+    );
+    return (
+      heightDiff <= 1 &&
+      this.isBalanced(node.left) &&
+      this.isBalanced(node.right)
+    );
   }
+    
+
+
+
+
+   }
+
+
+  
   
 
 
